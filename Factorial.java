@@ -18,7 +18,7 @@ class Factorial {
     long K = Fact(num - r);
 
     long ncr = N / (R * K);
-
+    // This code is use to print ncr value and also mention how to print factorial
     System.out.println(ncr);
 
   }
