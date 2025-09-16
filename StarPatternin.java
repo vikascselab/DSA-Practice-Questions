@@ -1,4 +1,3 @@
-import javax.print.DocFlavor.STRING;
 
 class StarPatternin {
 
