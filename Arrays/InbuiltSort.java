@@ -15,7 +15,7 @@ class InbuiltSort {
 
     arrayFunction.Arraysinput(marks);
 
-    // Arrays.sort(marks);
+    Arrays.sort(marks);
 
     arrayFunction.Arraysoutput(marks);
   }
