@@ -21,11 +21,11 @@ class basic {
 
     Scanner Input = new Scanner(System.in);
 
-    // String name;
-    // System.out.println(" Enter the name");
-    // name = Input.nextLine();
-    // System.out.println(name);
-    // System.out.println("Length of string" + name.length());
+    String name;
+    System.out.println(" Enter the name");
+    name = Input.nextLine();
+    System.out.println(name);
+    System.out.println("Length of string" + name.length());
 
     String firstname = "viksa";
     String lastname = "yadav";

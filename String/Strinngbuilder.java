@@ -6,12 +6,13 @@ class Strinngbuilder {
 
     StringBuilder sb = new StringBuilder("");
 
-    for (char cha = 'a'; cha <= 'z'; cha++) {
+    // for (char cha = 'a'; cha <= 'z'; cha++) {
 
-      sb.append(cha);
-    }
+    // sb.append(cha);
+    // }
 
-    System.out.println(sb + "");
+    // System.out.println(sb + " ");
+
   }
 
 }
