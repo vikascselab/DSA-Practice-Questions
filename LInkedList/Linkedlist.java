@@ -300,25 +300,103 @@ public class Linkedlist {
     return true;
   }
 
+  public static boolean iscycle() {
+
+    Node slow = head;
+    Node fast = head;
+
+    while (fast != null && fast.next != null) {
+
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow == fast) {
+
+        return true;
+
+      }
+    }
+    return false;
+
+  }
+
+  // looop removing
+
+  public static void removeCycle() {
+    // detect cycle
+
+    Node slow = head;
+    Node fast = head;
+
+    boolean cycle = false;
+
+    while (fast != null && fast.next != null) {
+
+      slow = slow.next;
+      fast = fast.next.next;
+
+      if (slow == fast) {
+
+        cycle = true;
+        break;
+
+      }
+
+    }
+
+    if (cycle == false) {
+      return;
+    }
+
+    // finding meting point
+
+    slow = head;
+    Node prev = null;// sotore last node
+    while (slow != fast) {
+
+      prev = fast;
+      slow = slow.next;
+      fast = fast.next;
+
+    }
+
+    // removing cycle
+
+    prev.next = null;
+  }
+
+  //// merge sort
+
   public static void main(String[] args) {
     System.out.println("Welcome to LinkedList");
-    Linkedlist ll = new Linkedlist();
 
-    ll.addFirst(5);
+    head = new Node(1);
 
-    ll.addFirst(2);
+    Node temp = new Node(2);
 
-    ll.addLast(2);
+    head.next = temp;
 
-    ll.addLast(1);
+    head.next.next = new Node(3);
+    head.next.next.next = temp;
+
+    // System.out.println(iscycle());
+
+    // Linkedlist ll = new Linkedlist();
+
+    // ll.addFirst(5);
+
+    // ll.addFirst(2);
+
+    // ll.addLast(2);
+
+    // ll.addLast(1);
 
     // ll.add(2, 7);
     // ll.removeFirst();
     // ll.print();
     // ll.removelast();
-    ll.print();
+    // ll.print();
 
-    System.out.println(ll.isPalindrome());
+    // System.out.println(ll.isPalindrome());
 
     // System.out.println(ll.reSearch(8));
     // System.out.println(ll.reSearch(3));
@@ -328,5 +406,12 @@ public class Linkedlist {
     // ll.deleteNthfromend(3);
     // ll.print();
     // System.out.println(ll.size);
+
+    // System.out.println(head);
+    // System.out.println(head.next);
+
+    System.out.println(iscycle());
+    removeCycle();
+    System.out.println(iscycle());
   }
 }
