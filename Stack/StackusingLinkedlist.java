@@ -1,31 +1,48 @@
 import java.util.ArrayList;
 
-public class StackB {
+public class StackusingLinkedlist {
+  // this is Linked list node
+  static class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+      this.data = data;
+      this.next = null;
+    }
+  }
 
   static class Stack {
-
-    static ArrayList<Integer> list = new ArrayList<>();
+    static Node head = null;
 
     public static boolean isempty() {
-      return list.size() == 0;
+      return head == null;
     }
-    // push
 
+    /// push function
     public static void push(int data) {
-      list.add(data);
+      Node newNode = new Node(data);
+      if (isempty()) {
+        head = newNode;
+        return;
+
+      }
+
+      newNode.next = head;
+      head = newNode;
     }
 
     // pop
 
     public static int pop() {
-
       if (isempty()) {
         return -1;
 
       }
-      int top = list.get(list.size() - 1);
-      list.remove(list.size() - 1);
+      int top = head.data;
+      head = head.next;
       return top;
+
     }
 
     // peek
@@ -33,9 +50,11 @@ public class StackB {
     public static int peek() {
       if (isempty()) {
         return -1;
-      }
-      return list.get(list.size() - 1);
 
+      }
+
+      int top = head.data;
+      return top;
     }
 
   }
