@@ -68,7 +68,7 @@ class Implementation {
 
     Queue q = new Queue(5);
 
-    Queue.add(1);
+    q.add(1);
     q.add(2);
     q.add(3);
 
