@@ -24,7 +24,6 @@ class Topviewoftree {
       this.hd = hd;
 
     }
-
   }
 
   public static void topview(Node root) {
@@ -43,7 +42,6 @@ class Topviewoftree {
         } else {
           q.add(null);
         }
-
       } else {
         if (!map.containsKey(curr.hd)) {
           map.put(curr.hd, curr.node);
@@ -71,6 +69,19 @@ class Topviewoftree {
     System.out.println();
   }
 
+  public static void klevel(Node root, int level, int k) {
+    if (root == null) {
+      return;
+
+    }
+    if (level == k) {
+      System.out.println(root.data + " ");
+    }
+    klevel(root.left, level + 1, k);
+    klevel(root.right, level + 1, k);
+    return;
+  }
+
   public static void main(String[] args) {
     System.out.println("welcome to top view of tree");
 
@@ -82,7 +93,8 @@ class Topviewoftree {
     root.right.left = new Node(6);
     root.right.right = new Node(7);
 
-    topview(root);
+    // topview(root);
+    klevel(root, 1, 3);
   }
 
 }

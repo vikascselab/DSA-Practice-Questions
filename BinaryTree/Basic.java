@@ -84,21 +84,30 @@ public class Basic {
       Queue<Node> q = new LinkedList<>();
 
       q.add(root);
+
       q.add(null);
+
+      int level = 1;
 
       while (!q.isEmpty()) {
         Node currNode = q.remove();
+
         if (currNode == null) {
-          System.out.println();
+          // System.out.println();
           if (q.isEmpty()) {
             break;
 
           } else {
             q.add(null);
+            level++;
           }
 
         } else {
-          System.out.print(currNode.data + " ");
+
+          if (level == 3) {
+            System.out.print(currNode.data + " ");
+          }
+
           if (currNode.left != null) {
             q.add(currNode.left);
 
@@ -141,8 +150,8 @@ public class Basic {
     // tree.preorder(root);
     // tree.inorder(root)
     // tree.postorder(root);
-    // tree.levelorder(root);
-    System.out.println(tree.height(root));
+    tree.levelorder(root);
+    // System.out.println(tree.height(root));
   }
 
 }
