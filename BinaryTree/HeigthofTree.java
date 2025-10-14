@@ -112,9 +112,9 @@ public class HeigthofTree {
     // System.out.println("height of tree is " + height(root));
     // System.out.println("Number of nodes is " + countN(root));
 
-    // System.out.println("sum of all nodes " + sumNodes(root));
+    System.out.println("sum of all nodes " + sumNodes(root));
     // System.out.println("diameter of tree is " + diameter2(root));
-    System.out.println(diameter(root).dia);
+    // System.out.println(diameter(root).dia);
   }
 
 }
