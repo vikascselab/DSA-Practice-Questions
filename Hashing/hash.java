@@ -8,8 +8,10 @@ public class hash {
 
     hm.put("india", 100);
     hm.put("china", 138);
+    hm.put("basti", 139);
+    hm.put("bhutan", 170);
     // insertion element
-    System.out.println(hm);
+    // System.out.println(hm);
 
     // get element
 
@@ -21,12 +23,20 @@ public class hash {
     // System.out.println(hm.containsKey("payal"));
     // System.out.println(hm.containsKey("india"));
 
-    System.out.println(hm.remove("india"));
-    System.out.println(hm);
+    // System.out.println(hm.remove("india"));
+    // System.out.println(hm);
 
-    System.out.println(hm.size());
+    // System.out.println(hm.size());
 
-    System.out.println(hm.isEmpty());
+    // System.out.println(hm.isEmpty());
+
+    Set<String> keys = hm.keySet();
+
+    System.out.println(keys);
+    for (String k : keys) {
+      System.out.println(hm.get(k));
+
+    }
   }
 
 }
