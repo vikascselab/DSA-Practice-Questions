@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AdjacencyList {
+public class graph {
 
   public static class Edge {
     int src, dest, wt;
@@ -42,10 +42,20 @@ public class AdjacencyList {
     graph[6].add(new Edge(6, 5, 1));
   }
 
-  public static void bfs(ArrayList<Edge>[] graph, int start) {
-    Queue<Integer> q = new LinkedList<>();
+  public static void bfs(ArrayList<Edge>[] graph) {
     boolean vis[] = new boolean[graph.length];
-    q.add(start);
+    for (int i = 0; i < graph.length; i++) {
+      if (!vis[i]) {
+        bfsUtill(graph, vis);
+      }
+
+    }
+  }
+
+  public static void bfsUtill(ArrayList<Edge>[] graph, boolean vis[]) {
+    Queue<Integer> q = new LinkedList<>();
+
+    q.add(0);
 
     while (!q.isEmpty()) {
       int curr = q.remove();
@@ -60,13 +70,23 @@ public class AdjacencyList {
   }
   // Dfs
 
-  public static void dfs(ArrayList<Edge>[] graph, int curr, boolean vis[]) {
+  public static void dfs(ArrayList<Edge>[] graph) {
+    boolean vis[] = new boolean[graph.length];
+    for (int i = 0; i < graph.length; i++) {
+      if (!vis[i]) {
+        dfsUtill(graph, i, vis);
+      }
+
+    }
+  }
+
+  public static void dfsUtill(ArrayList<Edge>[] graph, int curr, boolean vis[]) {
     System.out.println(curr + " ");
     vis[curr] = true;
     for (int i = 0; i < graph[curr].size(); i++) {
       Edge e = graph[curr].get(i);
       if (!vis[e.dest]) {
-        dfs(graph, e.dest, vis);
+        dfsUtill(graph, e.dest, vis);
 
       }
 
@@ -74,25 +94,26 @@ public class AdjacencyList {
   }
 
   // hash path
-  public static boolean hasPath(ArrayList<Edge>[] graph, int src, int dest, boolean vis[]) {
+  // public static boolean hasPath(ArrayList<Edge>[] graph, int src, int dest,
+  // boolean vis[]) {
 
-    if (src == dest) {
-      return true;
+  // if (src == dest) {
+  // return true;
 
-    }
+  // }
 
-    vis[src] = true;
-    for (int i = 0; i < graph[src].size(); i++) {
-      Edge e = graph[src].get(i);
-      // e.dest= neighbor
-      if (!vis[e.dest] && hasPath(graph, e.dest, dest, vis)) {
-        return true;
+  // vis[src] = true;
+  // for (int i = 0; i < graph[src].size(); i++) {
+  // Edge e = graph[src].get(i);
+  // // e.dest= neighbor
+  // if (!vis[e.dest] && hasPath(graph, e.dest, dest, vis)) {
+  // return true;
 
-      }
+  // }
 
-    }
-    return false;
-  }
+  // }
+  // return false;
+  // }
 
   public static void main(String[] args) {
     System.out.println("Welcome to adjacency list implementation");
