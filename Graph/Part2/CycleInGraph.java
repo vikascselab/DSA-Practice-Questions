@@ -53,7 +53,8 @@ public class CycleInGraph {
     for (Edge e : graph[curr]) {
       // Case 1: go to unvisited neighbor
       if (!vis[e.dest]) {
-        if (detectCycleUtil(graph, vis, e.dest, curr)) {
+
+        if (detectCycleUtil(graph, vis, e.dest, curr)) { // here is problem
           return true;
         }
       }
