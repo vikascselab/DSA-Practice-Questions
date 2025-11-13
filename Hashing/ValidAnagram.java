@@ -3,6 +3,11 @@ import java.util.*;
 public class ValidAnagram {
 
   public static boolean isAnagrame(String s, String t) {
+
+    if (s.length() != t.length()) {
+      return false;
+
+    }
     HashMap<Character, Integer> map = new HashMap<>();
     for (int i = 0; i < s.length(); i++) {
 

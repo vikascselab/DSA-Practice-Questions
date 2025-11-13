@@ -63,6 +63,66 @@ public class implemention {
 
   }
 
+  // stats with problem
+
+  public static boolean Statwith(String prefix) {
+    Node cur = root;
+    for (int i = 0; i < prefix.length(); i++) {
+      int idx = prefix.charAt(i) - 'a';
+      if (cur.children[idx] == null) {
+        return false;
+
+      }
+
+      cur = cur.children[idx];
+    }
+    return true;
+
+  }
+
+  // count unique sustring
+
+  public static int couNode(Node root) {
+    if (root == null) {
+      return 0;
+
+    }
+
+    int cout = 0;
+    for (int i = 0; i < 26; i++) {
+      if (root.children[i] != null) {
+        cout += couNode(root.children[i]);
+
+      }
+    }
+    return cout + 1;
+  }
+
+  // longest word
+
+  public static String ans = "";
+
+  public static void logestword(Node root, StringBuilder temp) {
+    if (root == null) {
+      return;
+
+    }
+    for (int i = 0; i < 26; i++) {
+      if (root.children[i] != null && root.children[i].eow == true) {
+        char ch = (char) (i + 'a');
+        temp.append(ch);
+        if (temp.length() > ans.length()) {
+          ans = temp.toString();
+
+        }
+        logestword(root.children[i], temp);
+
+        temp.deleteCharAt(temp.length() - 1);
+      }
+
+    }
+  }
+
   public static void main(String[] args) {
     System.out.println("welcome to tries implementaion");
 
@@ -83,16 +143,47 @@ public class implemention {
     // System.out.println("not exist");
     // }
 
-    String words[] = { "i", "like", "sam", "samsung", "mobile", "ice" };
+    // String words[] = { "i", "like", "sam", "samsung", "mobile", "ice" };
+
+    // for (int i = 0; i < words.length; i++) {
+    // insert(words[i]);
+
+    // }
+
+    // String key = "ilikesamsungo";
+
+    // System.out.println(wordBreak(key));
+
+    // String words[] = { "apple", "app", "mango", "man", "woman" };
+    // String prifix1 = "app";
+    // String prifix2 = "moon";
+
+    // for (int i = 0; i < words.length; i++) {
+    // insert(words[i]);
+
+    // }
+
+    // System.out.println(search(prifix2));
+
+    String str = "ababa";
+
+    // for (int i = 0; i < str.length(); i++) {
+    // String suffix = str.substring(i);
+    // insert(suffix);
+    // }
+    // System.out.println(couNode(root));
+
+    String words[] = { "a", "banana", "appl", "app", "ap", "apply", "apple" };
 
     for (int i = 0; i < words.length; i++) {
+
       insert(words[i]);
 
     }
 
-    String key = "ilikesamsungo";
+    logestword(root, new StringBuilder());
 
-    System.out.println(wordBreak(key));
+    System.out.println(ans);
   }
 
 }

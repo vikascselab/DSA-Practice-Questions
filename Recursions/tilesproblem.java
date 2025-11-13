@@ -4,7 +4,7 @@ public class tilesproblem {
   public static void main(String[] args) {
     System.out.println("welcome to tiling proplem");
 
-    System.out.println(tilingp(3));
+    System.out.println(tilingp(4));
 
   }
 

@@ -1,8 +1,8 @@
- class friendsPairing {
+class friendsPairing {
 
   public static void main(String[] args) {
     System.out.println("Welcome to friends pairing");
-    System.out.println(pair(3)); // Example with 3 friends
+    System.out.println(pair(5)); // Example with 3 friends
   }
 
   public static int pair(int n) {
