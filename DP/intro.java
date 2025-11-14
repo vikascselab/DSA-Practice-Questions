@@ -13,7 +13,7 @@ public class intro {
   // f[n] = fib(n - 1, f) + fib(n - 2, f);
   // return f[n];
   // }
-
+  // tabulation
   public static int fib(int n, int dp[]) {
     dp[0] = 0;
     dp[1] = 1;
