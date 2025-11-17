@@ -85,6 +85,42 @@ public class zeroOnekapsack {
     return dp[n][W];
   }
 
+  // unbounded kapsack
+
+  public static int kanpsackTU(int val[], int wt[], int W) {
+    int n = val.length;
+    int dp[][] = new int[n + 1][W + 1];
+    for (int i = 0; i < dp.length; i++) {
+      dp[i][0] = 0;
+
+    }
+
+    for (int j = 0; j < dp[0].length; j++) {
+      dp[0][j] = 0;
+
+    }
+
+    for (int i = 1; i < n + 1; i++) {
+      for (int j = 1; j < W + 1; j++) {
+        int v = val[i - 1];
+        int w = wt[i - 1];
+
+        if (w <= j) {
+          int iPro = v + dp[i][j - w];
+          int exPro = dp[i - 1][j];
+          dp[i][j] = Math.max(iPro, exPro);
+        } else {
+          int exPro = dp[i - 1][j];
+          dp[i][j] = exPro;
+
+        }
+
+      }
+
+    }
+    return dp[n][W];
+  }
+
   public static void main(String[] args) {
     System.out.println("welcome to 0/1 kanpsack problem");
 
@@ -105,7 +141,8 @@ public class zeroOnekapsack {
 
     // System.out.println(kanpsackR(val, wt, W, val.length));
 
-    System.out.println(kanpsackT(val, wt, W));
+    // System.out.println(kanpsackT(val, wt, W));
+    System.out.println(kanpsackTU(val, wt, W));
 
   }
 
