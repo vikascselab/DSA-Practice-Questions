@@ -8,8 +8,8 @@ public class CoinChange {
       dp[i][0] = 1;
 
     }
-    for (int i = 0; i < dp[0].length; i++) {
-      dp[0][i] = 0;
+    for (int j = 0; j < dp[0].length; j++) {
+      dp[0][j] = 0;
 
     }
 
